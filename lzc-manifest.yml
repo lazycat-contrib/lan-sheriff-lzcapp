@@ -1,0 +1,26 @@
+application:
+  subdomain: lan-sheriff
+  upstreams:
+    - location: /
+      backend: http://host.lzcapp:2911/
+services:
+  lan-sheriff:
+    # upstream: ghcr.io/291-group/lan-sheriff:1.0.1
+    image: ghcr.1ms.run/291-group/lan-sheriff:1.0.1
+    network_mode: host
+    netadmin: true
+    binds:
+      - /lzcapp/var/data:/data
+    environment:
+      - LAN_SHERIFF_DATA_DIR=/data
+    healthcheck:
+      test: ["CMD", "lan-sheriff", "status", "--data-dir", "/data"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+usage: |
+  首次打开请设置 LAN Sheriff 访问密码，无需注册外部账号。
+  应用使用宿主网络，2911 端口也可通过微服的局域网地址访问，请勿同时运行占用此端口的实例。
+  监控只能观察微服实际收到的网络流量；全网可见性需要网关或交换机镜像端口等合适的部署位置。
+  正常抓包应处于 Patrol Mode；若显示 Deputy Mode，请检查网络权限与抓包支持。

@@ -1,0 +1,22 @@
+package: community.lazycat.app.lan-sheriff
+version: 1.0.1
+name: LAN Sheriff
+description: 观察局域网设备连接的服务器，自托管、无需账号，只观察、不拦截。
+min_os_version: 1.5.2
+homepage: https://github.com/291-Group/LAN-Sheriff
+author: 291-Group
+license: AGPL-3.0
+permissions:
+  required:
+    - net.host
+    - net.lan
+    - net.internet
+    - net.admin
+    - compose.override
+locales:
+  zh:
+    name: LAN Sheriff
+    description: 观察局域网设备连接的服务器，自托管、无需账号，只观察、不拦截。
+  en:
+    name: LAN Sheriff
+    description: LAN Sheriff watches which servers your network talks to. Self-hosted, no account. Observes only; blocks nothing. Built by 291 Group.

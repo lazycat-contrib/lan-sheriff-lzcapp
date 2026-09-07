@@ -1,0 +1,11 @@
+manifest: ./lzc-manifest.yml
+pkgout: ./dist
+icon: ./icon.png
+compose_override:
+  services:
+    lan-sheriff:
+      cap_drop:
+        - ALL
+      cap_add:
+        - NET_RAW
+        - NET_ADMIN

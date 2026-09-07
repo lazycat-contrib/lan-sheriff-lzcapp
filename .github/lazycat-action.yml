@@ -1,0 +1,35 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/lan-sheriff.lpk
+  target_arch: amd64
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: lan-sheriff
+build:
+  toolchains: []
+  run_buildscript: false
+images:
+  - id: lan-sheriff
+    target: service
+    service: lan-sheriff
+    source: ghcr.io/291-group/lan-sheriff
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+      require_digest_match: true
+stores:
+  official:
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: LAN Sheriff
+    summary: 观察局域网设备连接的服务器，自托管、无需账号，只观察、不拦截。由 291 Group 开发。
