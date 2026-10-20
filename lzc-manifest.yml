@@ -5,8 +5,8 @@ application:
       backend: http://host.lzcapp:2911/
 services:
   lan-sheriff:
-    # upstream: ghcr.io/291-group/lan-sheriff:1.0.1
-    image: ghcr.1ms.run/291-group/lan-sheriff:1.0.1
+    # upstream: ghcr.io/291-group/lan-sheriff:1.0.2
+    image: ghcr.1ms.run/291-group/lan-sheriff:1.0.2
     network_mode: host
     netadmin: true
     binds:

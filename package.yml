@@ -1,5 +1,5 @@
 package: community.lazycat.app.lan-sheriff
-version: 1.0.1
+version: 1.0.2
 name: LAN Sheriff
 description: 观察局域网设备连接的服务器，自托管、无需账号，只观察、不拦截。
 min_os_version: 1.5.2
